@@ -1,0 +1,28 @@
+module AssetManagement {
+    typedef sequence<string> StringSeq; // Dinh nghia danh sach chuoi
+
+    interface AssetService {
+        void addAsset(in string id, in string type, in string owner, in string status);
+        StringSeq getAllAssets();
+        StringSeq getAssetByStatus(in string status);
+        void deleteAsset(in string id);
+        StringSeq getAssetByOwner(in string owner);
+        StringSeq getAssetByType(in string type);
+        void updateStatus(in string id, in string status);
+    };
+
+    interface ClientService {
+        void addClient(in string id, in string name);
+        StringSeq getAllClients();
+    };
+
+    interface StorageService {
+        void addAssetToStorage(in string id);
+        void deleteAssetFromStorage(in string id);
+        StringSeq getAllAssetsOnStorage();
+    };
+
+    interface UserService {
+        void addUser(in string id, in string name);
+    };
+};
